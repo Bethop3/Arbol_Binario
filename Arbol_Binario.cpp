@@ -45,6 +45,14 @@ void imprimirArbol(Nodo* nodo) {
     cout << nodo->valor << " ";
     imprimirArbol(nodo->derecho);
 }
+void imprimirArbolDes(Nodo* nodo) {
+    if (nodo == NULL) {
+        return;
+    }
+    imprimirArbolDes(nodo->derecho);
+    cout << nodo->valor << " ";
+    imprimirArbolDes(nodo->izquierdo);
+}
 
 int main()
 {
@@ -65,7 +73,9 @@ int main()
         raiz = insertarNodo(raiz , numero);
 
     }
-    cout<<" ";
+    cout<<"\n Forma Ascendente:\n";
     imprimirArbol(raiz);
+    cout<<"\n Forma Descendente:\n";
+	imprimirArbolDes(raiz);
 
 }
